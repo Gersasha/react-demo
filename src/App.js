@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import {default as SearchInput} from './search/Input'
+import React from "react";
+import {default as Table} from './list/Table'
+import {MASTER_DATA, DETAIL_DATA} from './demoResources/Data'
+import {MASTER_COLUMNS, DETAIL_COLUMNS} from './demoResources/Columns';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. test
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <SearchInput/>
+            </header>
+            <div className="App-content">
+                <div className="App-master">
+                    <Table items={MASTER_DATA} columns={MASTER_COLUMNS}/>
+                </div>
+                <div className="App-content">
+                    <Table items={DETAIL_DATA} columns={DETAIL_COLUMNS}/>
+                </div>
+            </div>
+            <footer>
+
+            </footer>
+        </div>
+    );
 }
 
 export default App;
